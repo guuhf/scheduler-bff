@@ -32,7 +32,6 @@ public class PhoneController {
     @Operation(summary = "Update phone", description = "Update a specific phone of the authenticated user")
     @ApiResponse(responseCode = "200", description = "Phone updated")
     @ApiResponse(responseCode = "404", description = "Phone not found")
-    @ApiResponse(responseCode = "409", description = "Phone already exists for this user")
     @ApiResponse(responseCode = "500", description = "Unexpected error")
     public ResponseEntity<PhoneDTO> phoneUpdate(@RequestBody PhoneDTO phoneDTO,
                                                 @PathVariable Long id,

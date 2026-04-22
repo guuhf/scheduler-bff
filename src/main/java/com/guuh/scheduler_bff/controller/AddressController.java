@@ -19,7 +19,6 @@ public class AddressController {
     @PostMapping()
     @Operation(summary = "Add an address", description = "Add a new address to the authenticated user")
     @ApiResponse(responseCode = "201", description = "Address created")
-    @ApiResponse(responseCode = "409", description = "Address already exists for this user")
     @ApiResponse(responseCode = "404", description = "User not found")
     @ApiResponse(responseCode = "500", description = "Unexpected error")
     public ResponseEntity<AddressDTO> addAddressToUser(@RequestBody AddressDTO addressDTO,
