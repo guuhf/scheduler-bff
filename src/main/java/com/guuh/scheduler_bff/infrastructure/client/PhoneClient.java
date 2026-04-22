@@ -3,7 +3,7 @@ import com.guuh.scheduler_bff.business.dtos.PhoneDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
-@FeignClient(name = "user", url = "${user.url}")
+@FeignClient(name = "phone", url = "${user.url}")
 public interface PhoneClient {
 
     @PostMapping("/user/me/phones")
