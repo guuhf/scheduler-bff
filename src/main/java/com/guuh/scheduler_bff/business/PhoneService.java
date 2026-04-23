@@ -1,10 +1,10 @@
 package com.guuh.scheduler_bff.business;
 
 
-import com.guuh.scheduler_bff.business.dtos.PhoneDTO;
+import com.guuh.scheduler_bff.business.dtos.request.PhoneRequestDTO;
+import com.guuh.scheduler_bff.business.dtos.response.PhoneResponseDTO;
 import com.guuh.scheduler_bff.infrastructure.client.PhoneClient;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,15 +13,15 @@ public class PhoneService {
 
     private final PhoneClient phoneClient;
 
-    public PhoneDTO addPhoneToUser(PhoneDTO phoneDTO, String token) {
-       return phoneClient.addPhoneToUser(token, phoneDTO);
+    public PhoneResponseDTO addPhoneToUser(PhoneRequestDTO dto, String token) {
+       return phoneClient.addPhoneToUser(token, dto);
     }
 
-    public PhoneDTO updatePhones(PhoneDTO phoneDTO, Long id, String token){
-        return phoneClient.phoneUpdate(token, phoneDTO, id);
+    public  PhoneResponseDTO updatePhones(PhoneRequestDTO dto, Long id, String token){
+        return phoneClient.phoneUpdate(token, dto, id);
     }
 
-    public PhoneDTO getPhoneData(Long id, String token) {
+    public  PhoneResponseDTO getPhoneData(Long id, String token) {
         return phoneClient.getPhoneData(token, id);
     }
 

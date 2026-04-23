@@ -1,6 +1,7 @@
 package com.guuh.scheduler_bff.infrastructure.client;
 
-import com.guuh.scheduler_bff.business.dtos.AddressDTO;
+import com.guuh.scheduler_bff.business.dtos.request.AddressRequestDTO;
+import com.guuh.scheduler_bff.business.dtos.response.AddressResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,18 +9,18 @@ import org.springframework.web.bind.annotation.*;
 public interface AddressClient {
 
     @PostMapping("/user/me/addresses")
-    AddressDTO addAddressToUser(
+    AddressResponseDTO addAddressToUser(
             @RequestHeader("Authorization") String token,
-            @RequestBody AddressDTO addressDTO);
+            @RequestBody AddressRequestDTO dto);
 
     @PutMapping("/user/me/addresses/{id}")
-    AddressDTO addressUpdate(
+    AddressResponseDTO addressUpdate(
             @RequestHeader("Authorization") String token,
-            @RequestBody AddressDTO addressDTO,
+            @RequestBody AddressRequestDTO dto,
             @PathVariable Long id);
 
     @GetMapping("/user/me/addresses/{id}")
-    AddressDTO getAddressData(
+    AddressResponseDTO getAddressData(
             @RequestHeader("Authorization") String token,
             @PathVariable Long id);
 

@@ -1,4 +1,4 @@
-package com.guuh.scheduler_bff.business.dtos;
+package com.guuh.scheduler_bff.business.dtos.response;
 
 
 import lombok.*;
@@ -10,11 +10,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class UserDTO {
+public class UserResponseDTO{
     private String name;
     private String email;
     private String password;
 
-    List<AddressDTO> addresses;
-    List<PhoneDTO> phones;
+    List<AddressResponseDTO> addresses;
+    List<UserResponseDTO> phones;
 }
