@@ -1,4 +1,4 @@
-package com.guuh.scheduler_bff.business.dtos;
+package com.guuh.scheduler_bff.business.dtos.response;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class AddressDTO {
+public class AddressResponseDTO {
     private String street;
     private String number;
     private String complement;

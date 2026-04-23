@@ -1,7 +1,7 @@
-package com.guuh.scheduler_bff.business.dtos;
+package com.guuh.scheduler_bff.business.dtos.response;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.guuh.taskscheduler.infraestructure.enums.NotificationStatusEnum;
+import com.guuh.scheduler_bff.infrastructure.enums.NotificationStatusEnum;
 import jakarta.validation.constraints.FutureOrPresent;
 import lombok.*;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class TaskDTO {
+public class TaskResponseDTO {
     private String id;
     private String taskName;
     private String description;

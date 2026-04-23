@@ -1,5 +1,6 @@
 package com.guuh.scheduler_bff.infrastructure.client;
-import com.guuh.scheduler_bff.business.dtos.PhoneDTO;
+import com.guuh.scheduler_bff.business.dtos.request.PhoneRequestDTO;
+import com.guuh.scheduler_bff.business.dtos.response.PhoneResponseDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 
@@ -7,18 +8,18 @@ import org.springframework.web.bind.annotation.*;
 public interface PhoneClient {
 
     @PostMapping("/user/me/phones")
-    PhoneDTO addPhoneToUser(
+    PhoneResponseDTO addPhoneToUser(
             @RequestHeader("Authorization") String token,
-            @RequestBody PhoneDTO phoneDTO);
+            @RequestBody PhoneRequestDTO dto);
 
     @PutMapping("/user/me/phones/{id}")
-    PhoneDTO phoneUpdate(
+    PhoneResponseDTO phoneUpdate(
             @RequestHeader("Authorization") String token,
-            @RequestBody PhoneDTO phoneDTO,
+            @RequestBody PhoneRequestDTO dto,
             @PathVariable Long id);
 
     @GetMapping("/user/me/phones/{id}")
-    PhoneDTO getPhoneData(
+    PhoneResponseDTO getPhoneData(
             @RequestHeader("Authorization") String token,
             @PathVariable Long id);
 

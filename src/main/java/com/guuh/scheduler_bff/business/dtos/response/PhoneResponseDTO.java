@@ -1,4 +1,4 @@
-package com.guuh.scheduler_bff.business.dtos;
+package com.guuh.scheduler_bff.business.dtos.response;
 
 import lombok.*;
 
@@ -7,7 +7,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PhoneDTO {
+public class  PhoneResponseDTO {
 
     private String phoneNumber;
     private String countryCode;

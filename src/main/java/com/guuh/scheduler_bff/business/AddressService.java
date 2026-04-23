@@ -1,9 +1,9 @@
 package com.guuh.scheduler_bff.business;
 
-import com.guuh.scheduler_bff.business.dtos.AddressDTO;
+import com.guuh.scheduler_bff.business.dtos.request.AddressRequestDTO;
+import com.guuh.scheduler_bff.business.dtos.response.AddressResponseDTO;
 import com.guuh.scheduler_bff.infrastructure.client.AddressClient;
 import lombok.RequiredArgsConstructor;
-import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,15 +12,15 @@ public class AddressService {
 
     private final AddressClient addressClient;
 
-    public AddressDTO addAddresToUser(AddressDTO addressDTO, String token){
-        return addressClient.addAddressToUser(token, addressDTO);
+    public AddressResponseDTO addAddresToUser(AddressRequestDTO dto, String token){
+        return addressClient.addAddressToUser(token, dto);
     }
 
-    public AddressDTO updateAddress(AddressDTO addressDTO, Long id, String token) {
-        return addressClient.addressUpdate(token, addressDTO, id);
+    public AddressResponseDTO updateAddress(AddressRequestDTO dto, Long id, String token) {
+        return addressClient.addressUpdate(token, dto, id);
     }
 
-    public AddressDTO getAddressData(Long id, String token) {
+    public AddressResponseDTO getAddressData(Long id, String token) {
         return addressClient.getAddressData(token, id);
     }
 
