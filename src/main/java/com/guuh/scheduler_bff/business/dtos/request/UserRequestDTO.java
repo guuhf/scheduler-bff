@@ -2,6 +2,7 @@ package com.guuh.scheduler_bff.business.dtos.request;
 
 
 import com.guuh.scheduler_bff.business.dtos.response.AddressResponseDTO;
+import com.guuh.scheduler_bff.business.dtos.response.PhoneResponseDTO;
 import lombok.*;
 
 import java.util.List;
@@ -16,6 +17,6 @@ public class UserRequestDTO {
     private String email;
     private String password;
 
-    List<AddressResponseDTO> addresses;
-    List<UserRequestDTO> phones;
+    List<AddressRequestDTO> addresses;
+    List<PhoneRequestDTO> phones;
 }

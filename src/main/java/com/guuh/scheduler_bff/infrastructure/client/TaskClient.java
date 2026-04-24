@@ -2,6 +2,7 @@ package com.guuh.scheduler_bff.infrastructure.client;
 
 import com.guuh.scheduler_bff.business.dtos.request.TaskRequestDTO;
 import com.guuh.scheduler_bff.business.dtos.response.TaskResponseDTO;
+import com.guuh.scheduler_bff.infrastructure.enums.NotificationStatusEnum;
 import jakarta.validation.Valid;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -32,7 +33,7 @@ public interface TaskClient {
                                 @RequestHeader("Authorization") String token);
 
     @PatchMapping("/tasks/{id}")
-    TaskResponseDTO updateTaskStatus(@RequestBody TaskRequestDTO dto,
+    TaskResponseDTO updateTaskStatus(@RequestParam("status")NotificationStatusEnum statusEnum,
                                      @PathVariable String id,
                                      @RequestHeader("Authorization") String token);
 
