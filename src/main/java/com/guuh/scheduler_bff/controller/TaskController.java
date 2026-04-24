@@ -4,6 +4,7 @@ import com.guuh.scheduler_bff.business.TaskService;
 import com.guuh.scheduler_bff.business.dtos.request.TaskRequestDTO;
 import com.guuh.scheduler_bff.business.dtos.response.TaskResponseDTO;
 import com.guuh.scheduler_bff.infrastructure.configs.SecurityConfig;
+import com.guuh.scheduler_bff.infrastructure.enums.NotificationStatusEnum;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
@@ -73,10 +74,10 @@ public class TaskController {
     @ApiResponse(responseCode = "200", description = "Task status updated successfully")
     @ApiResponse(responseCode = "404", description = "Task not found")
     @ApiResponse(responseCode = "401", description = "Unauthorized")
-    public ResponseEntity<TaskResponseDTO> updateTaskStatus(@RequestBody TaskRequestDTO dto,
+    public ResponseEntity<TaskResponseDTO> updateTaskStatus(@RequestParam("status")NotificationStatusEnum statusEnum,
                                                             @PathVariable String id,
                                                             @RequestHeader(name = "Authorization", required = false) String token){
-        return ResponseEntity.status(200).body(taskService.updateTaskStatus(dto, id, token));
+        return ResponseEntity.status(200).body(taskService.updateTaskStatus(statusEnum, id, token));
     }
 
     @DeleteMapping("/{id}")

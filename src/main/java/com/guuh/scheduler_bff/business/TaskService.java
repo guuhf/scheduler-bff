@@ -4,6 +4,7 @@ package com.guuh.scheduler_bff.business;
 import com.guuh.scheduler_bff.business.dtos.request.TaskRequestDTO;
 import com.guuh.scheduler_bff.business.dtos.response.TaskResponseDTO;
 import com.guuh.scheduler_bff.infrastructure.client.TaskClient;
+import com.guuh.scheduler_bff.infrastructure.enums.NotificationStatusEnum;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -36,7 +37,7 @@ public class TaskService {
       taskClient.deleteTasks(id, token);
     }
 
-    public TaskResponseDTO updateTaskStatus(TaskRequestDTO dto, String id, String token){
-        return taskClient.updateTaskStatus(dto, id, token);
+    public TaskResponseDTO updateTaskStatus(NotificationStatusEnum statusEnum, String id, String token){
+        return taskClient.updateTaskStatus(statusEnum, id, token);
     }
 }

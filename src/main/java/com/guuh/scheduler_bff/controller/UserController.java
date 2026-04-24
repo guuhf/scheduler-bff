@@ -8,6 +8,7 @@ import com.guuh.scheduler_bff.business.dtos.response.UserResponseDTO;
 import com.guuh.scheduler_bff.infrastructure.configs.SecurityConfig;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,7 @@ public class UserController {
     @PostMapping
     @Operation(summary = "Create a user", description = "Create a new user")
     @ApiResponse(responseCode = "201", description = "User created")
+    @ApiResponse(responseCode = "400", description = "Invalid request")
     @ApiResponse(responseCode = "409", description = "User already exists")
     @ApiResponse(responseCode = "500", description = "Unexpected error")
     public ResponseEntity<UserResponseDTO> saveUser(@RequestBody UserRequestDTO dto) {

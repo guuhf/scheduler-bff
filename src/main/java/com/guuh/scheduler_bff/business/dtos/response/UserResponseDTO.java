@@ -16,5 +16,5 @@ public class UserResponseDTO{
     private String password;
 
     List<AddressResponseDTO> addresses;
-    List<UserResponseDTO> phones;
+    List<PhoneResponseDTO> phones;
 }
